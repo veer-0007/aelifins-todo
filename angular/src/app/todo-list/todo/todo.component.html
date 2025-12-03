@@ -1,0 +1,26 @@
+<div class="overlay">
+  <div class="dialog-card">
+
+    <h3 class="dialog-title">{{ editData ? 'Update Todo' : 'Add Todo' }}</h3>
+
+    <form [formGroup]="todoForm" (ngSubmit)="submit()" class="form">
+      <input formControlName="task_name" type="text" placeholder="Enter name" class="input" />
+      <span *ngIf="todoForm.get('task_name')?.invalid && todoForm.get('task_name')?.dirty">*required</span>
+
+      <select formControlName="status" class="input">
+        <option value="pending">Pending</option>
+        <option value="done">Done</option>
+      </select>
+
+      <div class="dialog-actions">
+        <button class="btn primary" type="submit">
+          {{ editData ? 'Update' : 'Add' }}
+        </button>
+
+        <button type="button" class="btn danger" (click)="cancel()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

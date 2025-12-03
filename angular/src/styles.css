@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --muted: #777;
+    --danger: #e74c3c;
+}
+
+body {
+    margin: 0;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #2e86de;
+    color: white;
+    text-transform: capitalize;
+}
+
+.btn.small {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+.btn.tiny {
+    padding: 6px 8px;
+    font-size: 12px;
+}
+
+.btn.muted {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid #ddd;
+}
+
+.btn.danger {
+    background: var(--danger);
+}

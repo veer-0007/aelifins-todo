@@ -1,0 +1,29 @@
+<ng-container *ngIf="show">
+  <app-todo [editData]="editingTodo" (saved)="onSaved()" (closeEmitter)="show = $event"></app-todo>
+</ng-container>
+
+<!-- card layout -->
+<div class="todo-list">
+  <div class="header">
+    <h2>My Todos</h2>
+    <button class="btn small" (click)="open()">create</button>
+  </div>
+
+
+  <div class="grid">
+    <div class="card" *ngFor="let item of todos">
+      <div class="card-head">
+        <h3>{{ item?.task_name }}</h3>
+      </div>
+      <p class="card-status" [style.color]="item?.status === 'pending' ? 'red' : 'green'">{{ item?.status }}</p>
+
+
+      <div class="card-footer">
+        <button class="btn tiny" (click)="edit(item)">Edit</button>
+        <button class="btn tiny danger" (click)="delete(item.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="info">{{showLoader ? 'loading...' : todos.length === 0 ? 'no tasks' : ''}}</p>
+</div>
